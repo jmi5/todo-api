@@ -1,5 +1,5 @@
 #!flask/bin/python
-from flask import Flask
+from flask import Flask, jsonify
 
 app = Flask(__name__)
 
@@ -31,9 +31,6 @@ tasks = [
 def get_tasks():
     return jsonify({'tasks': tasks})
 
-if __name__ == '__main__':
-    app.run(debug=True)
-
 
 # Section 2 ------------------
 
@@ -45,3 +42,10 @@ def get_task(task_id):
     if len(task) == 0:
         abort(404)
     return jsonify({'task': task[0]})
+
+
+
+
+if __name__ == '__main__':
+	app.run(debug=True)
+
